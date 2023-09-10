@@ -1,7 +1,10 @@
+
+import { useState, useEffect } from 'react';
 import Menu from "../../containers/Menu";
 import ServiceCard from "../../components/ServiceCard";
 import EventCard from "../../components/EventCard";
 import PeopleCard from "../../components/PeopleCard";
+
 
 import "./style.scss";
 import EventList from "../../containers/Events";
@@ -13,10 +16,16 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {data} = useData()
-  const last = data ? data.events[data.events.length - 1] : null;
-
   
+  const { data } = useData();
+  const [last, setLast] = useState(null);
+
+  useEffect(() => {
+      const lastEventValue = data?.events?.[data.events.length - 1];
+      setLast(lastEventValue);
+    }, [data]);
+
+
   return <>
     <header>
       <Menu />
@@ -163,3 +172,4 @@ const Page = () => {
 }
 
 export default Page;
+

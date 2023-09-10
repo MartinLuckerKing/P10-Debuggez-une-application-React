@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import EventCard from "../../components/EventCard";
 import Select from "../../components/Select";
@@ -6,6 +7,8 @@ import Modal from "../Modal";
 import ModalEvent from "../ModalEvent";
 
 import "./style.css";
+
+
 
 const PER_PAGE = 9;
 
